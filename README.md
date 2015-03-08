@@ -10,4 +10,4 @@ Opens a new tmux session with the given name. As long as the session is alive, t
 
 # Topic configs
 
-If you create a file ~/.tmux-<name>, will make nt use that config file for a session with <name>.
+If you create a file ~/.tmux-$NAME, will make nt use that config file for a session with $NAME.
