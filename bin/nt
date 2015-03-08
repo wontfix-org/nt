@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+name=${1:?need a tmux session name}
+
+if tmux list-sessions 2>/dev/null | grep -Pq "^$name:"  ; then
+    tmux -2 attach-session -d -t $name
+else
+	config_file=$HOME/.tmux-$name
+    if [ -e $config_file ] ; then
+        tmux -2 new-session -s $name -c $config_file
+	else
+        tmux -2 new-session -s $name
+    fi
+fi
+
