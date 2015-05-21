@@ -2,7 +2,7 @@
 
 name=${1:?need a tmux session name}
 
-if tmux list-sessions 2>/dev/null | grep -Pq "^$name:"  ; then
+if tmux list-sessions 2>/dev/null | grep -Eq "^$name:"  ; then
     tmux -2 attach-session -d -t $name
 else
 	config_file=$HOME/.tmux-$name
